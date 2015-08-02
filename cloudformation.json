@@ -1,14 +1,40 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
+    "Description" : "fring cloud - Modular cf template - ELK Stack",
+
+      "Mappings" : {
+      "SubnetsMap" : {
+        "subnetSBCa" : { "IPsuffix" : "24.128/28" },
+        "subnetSBCb" : { "IPsuffix" : "24.144/28" },
+        "subnetNATa" : { "IPsuffix" : "25.0/24" },
+        "subnetNATb" : { "IPsuffix" : "26.0/24" },
+        "subnetDBa" : { "IPsuffix" : "24.0/28" },
+        "subnetDBb" : { "IPsuffix" : "24.16/28" },
+        "subnetExtNODEa" : { "IPsuffix" : "24.160/28" },
+        "subnetExtNODEb" : { "IPsuffix" : "24.176/28" },
+        "subnetINTERNETa" : { "IPsuffix" : "27.0/24" },
+        "subnetINTERNETb" : { "IPsuffix" : "28.0/24" },
+        "VPCCIDR" : { "IPsuffix" : "24.0/21" }
+	}
+  },
     "Parameters": {
         "VpcId" : {
             "Type" : "String",
             "Description" : "VPC Id"
         },
+     "vpcCIDRprefix" : {
+	  "Description" : "Please enter the prefix of the desired VPC CIDR (for example - xxx.xxx or 172.20)",
+	  "Type" : "String"
+		},
         "DefaultSubnetId" : {
             "Type" : "String",
             "Description" : "AZ 1 subnet id"
         },
+            "OfficeCIDR" : {
+      "Type" : "String",
+	  "Default":"10.10.0.0/16",
+      "Description" : "The CIDR block for our office network (xxx.xxx.xxx.xxx/xx)"
+    },
         "DefaultSshKeyName" : {
             "Type" : "String",
             "Description" : "The default ssh key name"
@@ -24,7 +50,7 @@
                 "UseCustomCookbooks": "true",
                 "CustomCookbooksSource": {
                     "Type": "git",
-                    "Url": "https://github.com/hautelook/elk-cookbooks.git"
+                    "Url": "https://github.com/Fring/elk-cookbooks.git"
                 },
                 "ChefConfiguration": {
                     "BerkshelfVersion": "3.1.3",
@@ -44,7 +70,7 @@
                     "Ref": "DefaultSshKeyName"
                 },
                 "DefaultRootDeviceType": "ebs",
-                "DefaultOs": "Amazon Linux 2014.09",
+                "DefaultOs": "Amazon Linux 2015.03",
                 "ServiceRoleArn": {
                     "Fn::Join": [
                         "",
@@ -83,7 +109,13 @@
                         "IpProtocol" : "-1",
                         "FromPort" : "-1",
                         "ToPort" : "-1",
-                        "CidrIp" : "0.0.0.0/0"
+                        "CidrIp": {"Fn::Join" : [".",[ { "Ref" : "vpcCIDRprefix" }, { "Fn::FindInMap" : [ "SubnetsMap", "VPCCIDR", "IPsuffix" ]}] ]}
+                    },
+                    {
+                        "IpProtocol" : "-1",
+                        "FromPort" : "-1",
+                        "ToPort" : "-1",
+                        "CidrIp": { "Ref" : "OfficeCIDR" }
                     }
                 ],
                 "SecurityGroupEgress" : [
@@ -96,7 +128,7 @@
                 ]
             }
         },
-        "sgElasticsearch": {
+       "sgElasticsearch": {
             "Type": "AWS::EC2::SecurityGroup",
             "Properties": {
                 "VpcId": {
@@ -108,7 +140,7 @@
                         "IpProtocol" : "tcp",
                         "FromPort" : "9200",
                         "ToPort" : "9300",
-                        "CidrIp" : "0.0.0.0/0"
+                        "CidrIp": {"Fn::Join" : [".",[ { "Ref" : "vpcCIDRprefix" }, { "Fn::FindInMap" : [ "SubnetsMap", "VPCCIDR", "IPsuffix" ]}] ]}
                     },
                     {
                         "IpProtocol" : "-1",
@@ -139,7 +171,7 @@
                         "IpProtocol" : "-1",
                         "FromPort" : "-1",
                         "ToPort" : "-1",
-                        "CidrIp" : "0.0.0.0/0"
+                        "CidrIp": {"Fn::Join" : [".",[ { "Ref" : "vpcCIDRprefix" }, { "Fn::FindInMap" : [ "SubnetsMap", "VPCCIDR", "IPsuffix" ]}] ]}
                     }
                 ],
                 "SecurityGroupEgress" : [
@@ -164,7 +196,13 @@
                         "IpProtocol" : "tcp",
                         "FromPort" : "80",
                         "ToPort" : "80",
-                        "CidrIp" : "0.0.0.0/0"
+                        "CidrIp": {"Fn::Join" : [".",[ { "Ref" : "vpcCIDRprefix" }, { "Fn::FindInMap" : [ "SubnetsMap", "VPCCIDR", "IPsuffix" ]}] ]}
+                    },
+                     {
+                        "IpProtocol" : "-1",
+                        "FromPort" : "-1",
+                        "ToPort" : "-1",
+                        "CidrIp": { "Ref" : "OfficeCIDR" }
                     }
                 ],
                 "SecurityGroupEgress" : [
@@ -272,7 +310,7 @@
                     {
                         "MountPoint": "/usr/local/var/data/elasticsearch",
                         "NumberOfDisks": 2,
-                        "RaidLevel": 1,
+                        "RaidLevel": 0,
                         "Size": 500
                     }
                 ],
