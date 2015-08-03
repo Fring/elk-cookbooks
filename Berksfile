@@ -6,6 +6,5 @@ cookbook 'opsworks_logstash', '~> 0.1.0', git: 'git://github.com/Fring/chef-opsw
 cookbook 'opsworks_utils', git: 'git://github.com/Fring/chef-opsworks-utils.git'
 
 cookbook 'elasticsearch', git: 'git://github.com/elasticsearch/cookbook-elasticsearch.git'
-cookbook 'logstash', git: 'git://github.com/lusis/chef-logstash.git'
-cookbook 'kibana_lwrp', git: 'git://github.com/Fring/chef-kibana.git'
+cookbook 'logstash', git: 'git://github.com/Fring/chef-logstash.git'
 cookbook 'kibana', git: 'git://github.com/Fring/chef-kibana.git'

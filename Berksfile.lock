@@ -2,12 +2,10 @@ DEPENDENCIES
   elasticsearch
     git: git://github.com/elasticsearch/cookbook-elasticsearch.git
     revision: c112a02e50f40dfd93bbe9326e2e695e4a06e59a
-  kibana_lwrp
-    git: git://github.com/Fring/chef-kibana.git
   kibana
     git: git://github.com/Fring/chef-kibana.git
   logstash
-    git: git://github.com/lusis/chef-logstash.git
+    git: git://github.com/Fring/chef-logstash.git
     revision: 0facb1dae7b96b1d6c9740ce0e1e79c099bca64f
   opsworks_elasticsearch
     git: git://github.com/Fring/chef-opsworks-elasticsearch.git
@@ -57,7 +55,7 @@ GRAPH
     yum-epel (>= 0.0.0)
   iptables (0.13.2)
   java (1.24.0)
-  kibana_lwrp (2.0.5)
+  kibana (1.3.0)
     apache2 (>= 0.0.0)
     ark (>= 0.0.0)
     git (>= 0.0.0)
