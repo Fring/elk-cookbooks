@@ -55,7 +55,7 @@ GRAPH
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
   iptables (0.13.2)
-  java (1.24.0)
+  java (1.29.0)
   libarchive (0.4.0)
     build-essential (~> 2.0)
   logrotate (1.6.0)
