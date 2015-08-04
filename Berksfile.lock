@@ -5,7 +5,6 @@ DEPENDENCIES
   chamber-kibana
     git: git://github.com/alexmfring/chamber-kibana.git
     revision: f002c7a08f9cea33c5b24deb67dc24b7aba1614c
-    git: git://github.com/Fring/chef-kibana.git
   logstash
     git: git://github.com/Fring/chef-logstash.git
     revision: 0facb1dae7b96b1d6c9740ce0e1e79c099bca64f
