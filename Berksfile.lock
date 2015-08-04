@@ -3,7 +3,7 @@ DEPENDENCIES
     git: git://github.com/elasticsearch/cookbook-elasticsearch.git
     revision: c112a02e50f40dfd93bbe9326e2e695e4a06e59a
   chamber-kibana
-    git: git://github.com/alexmfring/chamber-kibana.git
+    git: git://github.com/Fring/chamber-kibana.git
     revision: f002c7a08f9cea33c5b24deb67dc24b7aba1614c
   logstash
     git: git://github.com/Fring/chef-logstash.git
