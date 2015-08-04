@@ -7,4 +7,4 @@ cookbook 'opsworks_utils', git: 'git://github.com/Fring/chef-opsworks-utils.git'
 
 cookbook 'elasticsearch', git: 'git://github.com/elasticsearch/cookbook-elasticsearch.git'
 cookbook 'logstash', git: 'git://github.com/Fring/chef-logstash.git'
-cookbook 'kibana_lwrp', git: 'git://github.com/Fring/chef-kibana.git'
+cookbook 'chamber-kibana', git: 'git://github.com/Fring/chef-kibana.git', tag: '0.0.1'
