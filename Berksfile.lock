@@ -2,7 +2,7 @@ DEPENDENCIES
   elasticsearch
     git: git://github.com/elasticsearch/cookbook-elasticsearch.git
     revision: c112a02e50f40dfd93bbe9326e2e695e4a06e59a
-  kibana
+  kibana_lwrp
     git: git://github.com/Fring/chef-kibana.git
   logstash
     git: git://github.com/Fring/chef-logstash.git
