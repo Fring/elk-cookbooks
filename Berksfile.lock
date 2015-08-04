@@ -2,7 +2,9 @@ DEPENDENCIES
   elasticsearch
     git: git://github.com/elasticsearch/cookbook-elasticsearch.git
     revision: c112a02e50f40dfd93bbe9326e2e695e4a06e59a
-  kibana_lwrp
+  chamber-kibana
+    git: git://github.com/alexmfring/chamber-kibana.git
+    revision: f002c7a08f9cea33c5b24deb67dc24b7aba1614c
     git: git://github.com/Fring/chef-kibana.git
   logstash
     git: git://github.com/Fring/chef-logstash.git
@@ -19,7 +21,6 @@ DEPENDENCIES
     revision: e7bc204e3d3b1d05445474b80b06358a9c564f87
     
 GRAPH
-  poise (1.0.12)
   7-zip (1.0.2)
     windows (>= 1.2.2)
   ant (1.0.2)
@@ -82,15 +83,9 @@ GRAPH
   opsworks_elasticsearch (0.1.0)
     elasticsearch (>= 0.0.0)
     java (>= 0.0.0)
-  kibana_lwrp (2.0.5)
-    poise (1.0.12)
-    ark (>= 0.0.0)
-    git (>= 0.0.0)
-    libarchive (>= 0.0.0)
-    nginx (>= 0.0.0)
+  chamber-kibana (0.2.1)
   opsworks_kibana (0.1.0)
-    poise (1.0.12)
-    kibana_lwrp (>= 0.0.0)
+    chamber-kibana (>= 0.0.0)
     ohai (>= 0.0.0)
     opsworks_utils (>= 0.0.0)
   opsworks_logstash (0.1.3)
