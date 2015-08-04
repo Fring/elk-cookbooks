@@ -19,7 +19,7 @@ DEPENDENCIES
     revision: e7bc204e3d3b1d05445474b80b06358a9c564f87
     
 GRAPH
-  poise (1.0.12)
+  poise (2.0.0)
   7-zip (1.0.2)
     windows (>= 1.2.2)
   ant (1.0.2)
@@ -83,13 +83,13 @@ GRAPH
     elasticsearch (>= 0.0.0)
     java (>= 0.0.0)
   kibana_lwrp (2.0.5)
-    poise (1.0.12)
+    poise (2.0.0)
     ark (>= 0.0.0)
     git (>= 0.0.0)
     libarchive (>= 0.0.0)
     nginx (>= 0.0.0)
   opsworks_kibana (0.1.0)
-    poise (1.0.12)
+    poise (2.0.0)
     kibana_lwrp (>= 0.0.0)
     ohai (>= 0.0.0)
     opsworks_utils (>= 0.0.0)
