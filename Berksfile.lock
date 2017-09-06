@@ -6,7 +6,6 @@ DEPENDENCIES
     git: git://github.com/Fring/chef-kibana.git
   logstash
     git: git://github.com/Fring/chef-logstash.git
-    revision: 0facb1dae7b96b1d6c9740ce0e1e79c099bca64f
   opsworks_elasticsearch
     git: git://github.com/Fring/chef-opsworks-elasticsearch.git
   opsworks_kibana
