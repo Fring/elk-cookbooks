@@ -13,10 +13,10 @@ DEPENDENCIES
   opsworks_kibana
     git: git://github.com/Fring/chef-opsworks-kibana.git
   opsworks_logstash
-    git: git://github.com/hautelook/chef-opsworks-logstash.git
+    git: git://github.com/Fring/chef-opsworks-logstash.git
     revision: 55df077489d79aaead0a93677611b6a31d62e88e
   opsworks_utils
-    git: git://github.com/hautelook/chef-opsworks-utils.git
+    git: git://github.com/Fring/chef-opsworks-utils.git
     revision: e7bc204e3d3b1d05445474b80b06358a9c564f87
     
 GRAPH
