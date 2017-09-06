@@ -12,6 +12,7 @@ DEPENDENCIES
     git: git://github.com/Fring/chef-opsworks-kibana.git
   opsworks_logstash
     git: git://github.com/Fring/chef-opsworks-logstash.git
+    revision: b74bbbe1b48b8b130ada16b3a072bc760b11f49a
   opsworks_utils
     git: git://github.com/Fring/chef-opsworks-utils.git
   kibana_lwrp
