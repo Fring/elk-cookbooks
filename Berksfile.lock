@@ -12,7 +12,6 @@ DEPENDENCIES
     git: git://github.com/Fring/chef-opsworks-kibana.git
   opsworks_logstash
     git: git://github.com/Fring/chef-opsworks-logstash.git
-    revision: b74bbbe1b48b8b130ada16b3a072bc760b11f49a
   opsworks_utils
     git: git://github.com/Fring/chef-opsworks-utils.git
   kibana_lwrp
@@ -90,7 +89,7 @@ GRAPH
     kibana_lwrp (>= 0.0.0)
     ohai (>= 0.0.0)
     opsworks_utils (>= 0.0.0)
-  opsworks_logstash (0.1.3)
+  opsworks_logstash (0.1.1)
     logstash (>= 0.0.0)
     opsworks_utils (>= 0.0.0)
   opsworks_utils (0.1.0)
